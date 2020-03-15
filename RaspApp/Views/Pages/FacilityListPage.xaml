@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewcells="clr-namespace:RaspApp.Views.ViewCells"
+             mc:Ignorable="d"
+             x:Class="RaspApp.Views.Pages.FacilityListPage"
+             Title="Список ВУЗов ">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Настройки"
+				 IconImageSource="settings.png"
+				 Order="Primary"
+				 Priority="0" 
+					 Clicked="ToolbarItem_Clicked"/>
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="FacilitiesList"
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="False"
+                      SeparatorColor="Black"
+                      ItemSelected="FacilitiesList_ItemSelected"
+                      ItemsSource="{Binding Model.Facilities}"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <viewcells:FacilityViewCell/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

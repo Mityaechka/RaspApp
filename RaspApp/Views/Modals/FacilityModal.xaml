@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RaspApp.Views.Modals.FacilityModal"
+    CloseWhenBackgroundIsClicked="True"
+    BackgroundInputTransparent ="False">
+
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout 
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" 
+        Padding="20,20,20,40">
+        
+        <Frame CornerRadius="10" >
+            <StackLayout>
+                <Label Text="{Binding Model.FullName}"
+                       HorizontalTextAlignment="Center"
+                           FontSize="17"
+                           TextColor="Black"/>
+                <BoxView HeightRequest="1" 
+                         BackgroundColor="Black" 
+                         HorizontalOptions="FillAndExpand" />
+                <Label VerticalOptions="CenterAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Главная страница"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ClickCommand}"
+                                          CommandParameter="{Binding Model.MainUrl}" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label VerticalOptions="CenterAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Расписание"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ClickCommand}"
+                                          CommandParameter="{Binding Model.ScheduleUrl}" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Все данные получены из открытых источников."
+                       TextColor="Black"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:viewcells="clr-namespace:RaspApp.Views.ViewCells"
+          mc:Ignorable="d"
+             x:Class="RaspApp.Views.ViewCells.DayViewCell">
+  <ViewCell.View>
+      <StackLayout VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="FillAndExpand" Padding="10" >
+            <Frame CornerRadius="8"
+                 BackgroundColor="#005590" Padding="5" HorizontalOptions="Fill">
+                <Label Text="{Binding FullName}"
+                     TextColor="White"/>
+            </Frame>
+            <StackLayout x:Name="TimeRangeLayout">
+                
+            </StackLayout>
+        </StackLayout>
+  </ViewCell.View>
+</ViewCell>

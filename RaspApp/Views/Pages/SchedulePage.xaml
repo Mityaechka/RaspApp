@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 
+			 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:tabview="clr-namespace:Xam.Plugin.TabView;assembly=Xam.Plugin.TabView"
+			 xmlns:components="clr-namespace:RaspApp.Views.Components"
+			 xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+			 xmlns:viewcells="clr-namespace:RaspApp.Views.ViewCells"
+             xmlns:local="clr-namespace:RaspApp.Converters"
+             mc:Ignorable="d"
+			 x:Class="RaspApp.Views.Pages.SchedulePage"
+			 Title="{Binding Path=Schedule.Group.Name, StringFormat='{0}'}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BooleanConverter x:Key="boolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<controls:PullToRefreshLayout x:Name="RefreshLayout" 
+                                          
+		                                  IsPullToRefreshEnabled="False"
+		                                  RefreshColor="Blue" HeightRequest="-1">-->
+                <tabview:TabViewControl HorizontalOptions="Fill"
+											VerticalOptions="FillAndExpand" 
+											x:Name="DaysTabView"
+											HeaderBackgroundColor="#4b81c1" HeightRequest="-1"/>
+            <!--</controls:PullToRefreshLayout>-->
+            <ListView HasUnevenRows="True"
+					  x:Name="DaysListView"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding Refresh}"
+                      ItemSelected="DaysListView_ItemSelected"
+                      IsVisible="{Binding TabsViewMode ,Converter={StaticResource boolConverter}}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <viewcells:DayViewCell/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RaspApp.Views.Pages.LessonView">
+  <ContentView.Content>
+        <StackLayout Orientation="Horizontal" 
+                   Padding="10,0" 
+                   HorizontalOptions="Fill" 
+                   VerticalOptions="Start" Margin="0,10" >
+            <StackLayout Orientation="Vertical" 
+                             VerticalOptions="Center"
+                             Padding="10,0">
+                <Label IsVisible="{Binding Path=ShowIndex}" Text="{Binding Path=Index}" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" 
+                             VerticalOptions="Center"
+                         HorizontalOptions="Start"
+                         MinimumWidthRequest="150"
+                             Padding="10,0">
+                <Label Text="{Binding Path=StartTime}"
+                           FontSize="18"
+                           TextColor="Black"/>
+                <Label Text="{Binding Path=EndTime}"
+                           FontSize="14"
+                           TextColor="Gray"/>
+            </StackLayout>
+            <StackLayout 
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="{Binding Path=IsDivided}">
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" 
+                                 Orientation="Vertical" 
+                                 VerticalOptions="Start"
+                                 Padding="0"
+                                 IsVisible="{Binding Path=HasSubroup1}">
+                        <Frame CornerRadius="10"
+                           BackgroundColor="#005590" Padding="6,2" HorizontalOptions="Start" >
+                            <Label Text="{Binding Path=Subgroup1.Type}"
+                               TextColor="White"/>
+                        </Frame>
+                        <Label Text="{Binding Path=Subgroup1.Name}"
+                               TextColor="Black"/>
+                        <Label Text="{Binding Path=Subgroup1.Classroom}"
+                               TextColor="Gray"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="0"
+                              Orientation="Vertical" 
+                             VerticalOptions="Center"
+                             Padding="0"
+                                  IsVisible="{Binding Path=IsEmpty1}">
+                        <Frame CornerRadius="15"
+                           BackgroundColor="#005590" Padding="8,4" HorizontalOptions="Start" >
+                            <Label Text="Пусто"
+                               TextColor="White"
+                                   FontSize="20"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1"
+                              Orientation="Vertical" 
+                             VerticalOptions="Start"
+                             Padding="0"
+                                  IsVisible="{Binding Path=HasSubroup2}">
+                        <Frame CornerRadius="10"
+                           BackgroundColor="#005590" Padding="6,2" HorizontalOptions="Start" >
+                            <Label Text="{Binding Path=Subgroup2.Type}"
+                               TextColor="White"/>
+                        </Frame>
+                        <Label Text="{Binding Path=Subgroup2.Name}"
+                               TextColor="Black"/>
+                        <Label Text="{Binding Path=Subgroup2.Classroom}"
+                               TextColor="Gray"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1"
+                              Orientation="Vertical" 
+                             VerticalOptions="Center"
+                             Padding="0"
+                                  IsVisible="{Binding Path=IsEmpty2}">
+                        <Frame CornerRadius="15"
+                           BackgroundColor="#005590" Padding="8,4" HorizontalOptions="Start" >
+                            <Label Text="Пусто"
+                               TextColor="White"
+                                   FontSize="20"/>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout 
+                Orientation="Vertical"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding Path=IsUnion}" >
+                <!--<StackLayout HorizontalOptions="Center">-->
+                <Frame CornerRadius="10"
+                           BackgroundColor="#005590" Padding="6,2" 
+                            HorizontalOptions="Center">
+                    <Label Text="{Binding Path=UnionLesson.Type}"
+                                   TextColor="White" 
+                                   HorizontalTextAlignment="Center"/>
+                </Frame>
+                <Label Text="{Binding Path=UnionLesson.Name}"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Center" 
+                               HorizontalOptions="Center"/>
+                <Label Text="{Binding Path=UnionLesson.Classroom}"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center" 
+                                   HorizontalOptions="FillAndExpand"/>
+                <!--</StackLayout>-->
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

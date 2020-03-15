@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RaspApp.Views.Pages.MasterPage">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Title">
+            <StackLayout HorizontalOptions="Center">
+                <Button Text="Мое расписание" 
+                        CornerRadius="25" 
+                        WidthRequest="200"
+                        Margin="10,30" 
+                        BackgroundColor="#00410A0A" 
+                        BorderColor="#4b81c1"
+                        BorderWidth="1"
+                        Clicked="LoaclScheduleOpen" />
+                <Button Text="Список ВУЗов" 
+                        CornerRadius="25" 
+                        WidthRequest="200"
+                        Margin="10,0,10,30" 
+                        BackgroundColor="#00410A0A" 
+                        BorderColor="#4b81c1"
+                        BorderWidth="1"
+                        Clicked="ScheduleOpen"/>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
